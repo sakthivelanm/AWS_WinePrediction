@@ -1,7 +1,7 @@
 #/bin/bash
 
 export SPARK_MASTER_PORT=7077
-export SPARK_MASTER_WEBUI_PORT=8090
+export SPARK_MASTER_WEBUI_PORT=8080
 export SPARK_LOG_DIR=/opt/spark/logs
 export SPARK_MASTER_LOG=/opt/spark/logs/spark-master.out
 export JAVA_HOME=/usr/bin/java
