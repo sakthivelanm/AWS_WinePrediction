@@ -13,6 +13,4 @@ sudo ln -sf /dev/stdout $SPARK_MASTER_LOG
 export SPARK_MASTER_HOST=`hostname`
 
 cd /opt/spark/bin &&
-sudo ./spark-class org.apache.spark.deploy.master.Master --ip
-$SPARK_MASTER_HOST --port $SPARK_MASTER_PORT --webui-port
-$SPARK_MASTER_WEBUI_PORT >> $SPARK_MASTER_LOG
+sudo ./spark-class org.apache.spark.deploy.master.Master --ip $SPARK_MASTER_HOST --port $SPARK_MASTER_PORT --webui-port $SPARK_MASTER_WEBUI_PORT >> $SPARK_MASTER_LOG
