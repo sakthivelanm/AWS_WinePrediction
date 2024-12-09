@@ -13,3 +13,10 @@ sudo rm apache-spark.tgz
 echo "export SPARK_HOME=/opt/spark" >> ~/.bashrc
 echo "export PATH=\$SPARK_HOME/bin:\$PATH" >> ~/.bashrc
 
+sudo apt install python3-pip -y
+sudo apt install python3-numpy -y
+sudo apt install python3-pandas -y
+sudo apt install python3-quinn -y
+sudo apt install python3-pyspark -y
+sudo apt install python3-findspark -y
+
