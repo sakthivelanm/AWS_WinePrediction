@@ -12,4 +12,4 @@ sudo rm apache-spark.tgz
 
 echo "export SPARK_HOME=/opt/spark" >> ~/.bashrc
 echo "export PATH=\$SPARK_HOME/bin:\$PATH" >> ~/.bashrc
-source ~/.bashrc
+
