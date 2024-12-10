@@ -31,11 +31,11 @@ spark.sparkContext.setLogLevel("ERROR")
 
 # Load saved model
 model_path = "/home/ubuntu/wineQualityLogisticModel"
-if os.path.exists(model_path):
+try:
     model = PipelineModel.load(model_path)
-else:
-    print(f"Model not found at {model_path}. Exiting.")
-    sys.exit(1)
+    print("Model loaded successfully!")
+except Exception as e:
+    print(f"Error loading model: {e}")
 
 # Load test dataset
 test_file_path = sys.argv[1]
