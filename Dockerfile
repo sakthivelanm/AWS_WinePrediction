@@ -1,4 +1,4 @@
-FROM bitnami/spark:latest
+FROM fokkodriesprong/docker-pyspark
 
 USER root
 RUN java -version
