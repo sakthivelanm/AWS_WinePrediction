@@ -16,7 +16,7 @@ from pyspark.ml import Pipeline
 spark = SparkSession \
     .builder \
     .appName("CS643_Wine_Quality_Predictions_Project") \
-    .master("spark://ip-172-31-22-218:7077") \
+    .master("spark://ip-172-31-81-63:7077") \
     .getOrCreate()
 spark.sparkContext.setLogLevel("ERROR")
 
