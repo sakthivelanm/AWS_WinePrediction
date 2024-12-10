@@ -12,7 +12,7 @@ from pyspark.ml.classification import LogisticRegression, RandomForestClassifier
 from pyspark.ml.evaluation import MulticlassClassificationEvaluator
 from pyspark.ml.tuning import CrossValidator, ParamGridBuilder
 from pyspark.ml import Pipeline
-from pyspark.ml import CrossValidatorModel
+from pyspark.ml.tuning import CrossValidatorModel
 
 # Check for input arguments
 if len(sys.argv) != 2:
