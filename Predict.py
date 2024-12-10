@@ -72,3 +72,6 @@ crossval = CrossValidator(estimator=pipeline1,
                         )
 cvModel1 = crossval.fit(test_df) 
 print("F1 Score for Our Model: ", evaluator.evaluate(cvModel1.transform(test_df)))
+
+predictions = cvModel1.transform(test_df)
+predictions.show()
