@@ -1,5 +1,7 @@
 #/bin/bash
 
+sudo apt-get update && sudo apt-get upgrade -y
+
 sudo mkdir /app
 sudo apt-get install -y curl vim wget software-properties-common 
 sudo apt-get isntall -y net-tools ca-certificates
