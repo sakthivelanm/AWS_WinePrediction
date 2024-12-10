@@ -1,7 +1,8 @@
 FROM bitnami/spark:latest
 
 USER root
-RUN apt-get update && apt-get install -y openjdk-11-jdk
+RUN java -version
+RUN apt-get update
 RUN pip3 install pyspark pandas scikit-learn quinn
 
 COPY . /app
