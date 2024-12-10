@@ -7,4 +7,4 @@ WORKDIR /app
 
 EXPOSE 4040
 
-CMD ["python3", "predict.py"]
+ENTRYPOINT ["python3", "predict.py"]
