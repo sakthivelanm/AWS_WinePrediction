@@ -26,8 +26,8 @@ if len(sys.argv) != 2:
 sc = SparkContext('local')
 spark = SparkSession(sc)
 
-train_df = spark.read.format('csv').options(header='true', inferSchema='true', sep=';').load('/data/TrainingDataset.csv')
-valid_df = spark.read.format('csv').options(header='true', inferSchema='true', sep=';').load('/data/ValidationDataset.csv')
+train_df = spark.read.format('csv').options(header='true', inferSchema='true', sep=';').load('/home/ubuntu/AWS_WinePrediction/TrainingDataset.csv')
+valid_df = spark.read.format('csv').options(header='true', inferSchema='true', sep=';').load('/home/ubuntu/AWS_WinePrediction/ValidationDataset.csv')
 
 # Load test dataset
 test_file_path = sys.argv[1]
