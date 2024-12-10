@@ -1,7 +1,8 @@
 #/bin/bash
 
-sudo apt update && sudo apt upgrade -y
 sudo mkdir /app
+sudo apt-get install -y curl vim wget software-properties-common 
+ssh net-tools ca-certificates
 sudo cp TrainingDataset.csv ValidationDataset.csv /app/
 sudo apt install -y deafult-jre
 sudo wget -O apache-spark.tgz "https://archive.apache.org/dist/spark/spark-3.2.0/spark-3.2.0-bin-hadoop2.7.tgz"
