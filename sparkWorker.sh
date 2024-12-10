@@ -11,7 +11,7 @@ export SPARK_LOCAL_IP=$(hostname -I | awk '{print $1}')
 . "/opt/spark/bin/load-spark-env.sh"
 
 sudo mkdir -p $SPARK_LOG_DIR
-sudo touch $SPARK_WORDER_LOG
+sudo touch $SPARK_WORkER_LOG
 sudo ln -sf /dev/stdout $SPARK_WORKER_LOG
 cd /opt/spark/bin
 sudo ./spark-class org.apache.spark.deploy.worker.Worker --webui-port $SPARK_WORKER_WEBUI_PORT $SPARK_MASTER
