@@ -18,7 +18,7 @@ from pyspark.ml.tuning import CrossValidatorModel
 if len(sys.argv) != 2:
     print("Usage: python predict.py <testFilePath>")
     sys.exit(1)
-test_file_path = sys.argv[1]
+
 
 # Initialize Spark Session
 spark = SparkSession \
@@ -28,10 +28,11 @@ spark = SparkSession \
     .getOrCreate()
 
 # Load saved model
-model_path = "/home/ubuntu/wineQualityLogisticModel"
-model = CrossValidatorModel.load(model_path)
+model_path = "/home/ubuntu/wineQualityLogisticModel/bestModel"
+model = PipelineModel.load(model_path)
 
 # Load test dataset
+test_file_path = sys.argv[1]
 test_df = spark.read.format('csv').options(header='true', inferSchema='true', sep=';').load(test_file_path)
 print("Data loaded into Spark.")
 print(test_df.toPandas().head())
