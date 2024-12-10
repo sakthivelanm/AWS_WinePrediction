@@ -11,7 +11,7 @@ export SPARK_LOG_DIR=/opt/spark/logs \
 export SPARK_WORKER_LOG=/opt/spark/logs/spark-worker.out \
 export SPARK_WORKER_WEBUI_PORT=8080 \
 export SPARK_WORKER_PORT=7000 \
-export SPARK_MASTER="spark://ip-172-31-23-97:7077" \
+export SPARK_MASTER="spark://ip-172-31-22-218:7077" \
 export SPARK_LOCAL_IP
 
 . "/opt/spark/bin/load-spark-env.sh"
