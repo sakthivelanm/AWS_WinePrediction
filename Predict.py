@@ -29,7 +29,7 @@ spark = SparkSession \
 spark.sparkContext.setLogLevel("ERROR")
 
 # Load saved model
-model_path = "/home/ubuntu/wineQualityLogisticModel/bestModel"
+model_path = "/home/ubuntu/wineQualityLogisticModel"
 model = PipelineModel.load(model_path)
 
 # Load test dataset
