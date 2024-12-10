@@ -28,7 +28,7 @@ spark = SparkSession \
     .getOrCreate()
 
 # Load saved model
-model_path = "/home/ubuntu/wine_quality_logistic_model"
+model_path = "/home/ubuntu/wineQualityLogisticModel"
 model = PipelineModel.load(model_path)
 
 # Load test dataset
