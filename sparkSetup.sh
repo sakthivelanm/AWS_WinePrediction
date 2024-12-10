@@ -9,6 +9,6 @@ sudo mkdir -p /opt/spark
 sudo tar -xvzf apache-spark.tgz -C /opt/spark --strip-components=1
 sudo rm apache-spark.tgz
 
-echo export SPARK_HOME=/opt/spark >> ~/.bashrc
-echo export PATH=\$SPARK_HOME/bin:\$PATH >> ~/.bashrc
+echo "export SPARK_HOME=/opt/spark" >> ~/.bashrc
+echo "export PATH=\$SPARK_HOME/bin:\$PATH" >> ~/.bashrc
 source ~/.bashrc
