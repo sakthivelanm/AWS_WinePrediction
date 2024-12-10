@@ -1,6 +1,6 @@
 FROM bitnami/spark:latest
 
-RUN pip3 install pyspark pandas scikit-learn
+RUN pip3 install pyspark pandas scikit-learn quinn
 
 COPY . /app
 WORKDIR /app
