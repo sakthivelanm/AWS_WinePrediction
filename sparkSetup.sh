@@ -2,7 +2,7 @@
 
 sudo mkdir /app
 sudo apt-get install -y curl vim wget software-properties-common 
-ssh net-tools ca-certificates
+sudo apt-get isntall -y net-tools ca-certificates
 sudo cp TrainingDataset.csv ValidationDataset.csv /app/
 sudo apt install openjdk-8-jdk
 sudo wget -O apache-spark.tgz "https://archive.apache.org/dist/spark/spark-3.2.0/spark-3.2.0-bin-hadoop2.7.tgz"
