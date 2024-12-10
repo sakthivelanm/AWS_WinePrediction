@@ -3,6 +3,7 @@ import sys
 import numpy as np
 import pandas as pd
 import quinn
+import os
 
 from pyspark.sql.types import IntegerType, DoubleType
 from pyspark.sql.functions import col, desc
@@ -30,7 +31,11 @@ spark.sparkContext.setLogLevel("ERROR")
 
 # Load saved model
 model_path = "/home/ubuntu/wineQualityLogisticModel"
-model = PipelineModel.load(model_path)
+if os.path.exists(model_path):
+    model = PipelineModel.load(model_path)
+else:
+    print(f"Model not found at {model_path}. Exiting.")
+    sys.exit(1)
 
 # Load test dataset
 test_file_path = sys.argv[1]
