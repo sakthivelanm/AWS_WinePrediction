@@ -74,7 +74,7 @@ crossval = CrossValidator(estimator=pipeline1,
 cvModel1 = crossval.fit(train_df) 
 f1_score_lr = evaluator.evaluate(cvModel1.transform(validation_df))
 print("F1 Score for LogisticRegression Model: ", f1_score_lr)
-cvModel1.save("/home/ubuntu/wineQualityLogisticModel")
+
 
 
 crossval = CrossValidator(estimator=pipeline2,  
@@ -86,9 +86,11 @@ crossval = CrossValidator(estimator=pipeline2,
 cvModel2 = crossval.fit(train_df) 
 f1_score_rf = evaluator.evaluate(cvModel2.transform(validation_df))
 print("F1 Score for RandomForestClassifier Model: ", f1_score_rf)
-cvModel2.save("/home/ubuntu/wineQualityRfModel")
 
 if f1_score_lr > f1_score_rf:
     print("Using Logistic Regression Model for predictions.")
+    cvModel1.write().overwrite().save("/home/ubuntu/wineQualityLogisticModel")
 else:
     print("Using Random Forest Model for predictions.")
+    cvModel2.write().overwrite().save("/home/ubuntu/wineQualityRfModel")
+
