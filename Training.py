@@ -16,6 +16,7 @@ from pyspark.ml import Pipeline
 spark = SparkSession \
     .builder \
     .appName("CS643_Wine_Quality_Predictions_Project") \
+    .master("spark://ip-172-31-22-218:7077") \
     .getOrCreate()
 
 ## Load Training Dataset
