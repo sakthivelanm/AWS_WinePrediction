@@ -8,6 +8,7 @@ import os
 from pyspark.sql.types import IntegerType, DoubleType
 from pyspark.sql.functions import col, desc
 from pyspark.sql import SparkSession
+from pyspark.context import SparkContext
 from pyspark.ml.feature import VectorAssembler, Normalizer, StandardScaler
 from pyspark.ml.classification import LogisticRegression, RandomForestClassifier
 from pyspark.ml.evaluation import MulticlassClassificationEvaluator
