@@ -9,4 +9,4 @@ WORKDIR /app
 
 EXPOSE 4040
 
-ENTRYPOINT ["python3", "Predict.py"]
+ENTRYPOINT ["python3", "DockerPredict.py"]
