@@ -29,14 +29,6 @@ spark = SparkSession \
     .getOrCreate()
 spark.sparkContext.setLogLevel("ERROR")
 
-# Load saved model
-model_path = "/home/ubuntu/wineQualityLogisticModel"
-try:
-    model = PipelineModel.load(model_path)
-    print("Model loaded successfully!")
-except Exception as e:
-    print(f"Error loading model: {e}")
-
 # Load test dataset
 test_file_path = sys.argv[1]
 test_df = spark.read.format('csv').options(header='true', inferSchema='true', sep=';').load(test_file_path)
@@ -52,11 +44,31 @@ test_df = test_df.withColumnRenamed('quality', 'label')
 print("Data has been formatted.")
 print(test_df.toPandas().head())
 
+assembler = VectorAssembler(
+    inputCols=["fixed acidity",
+               "volatile acidity",
+               "citric acid",
+               "residual sugar",
+               "chlorides",
+               "free sulfur dioxide",
+               "total sulfur dioxide",
+               "density",
+               "pH",
+               "sulphates",
+               "alcohol"],
+                outputCol="inputFeatures")
 
-# Make Predictions
-predictions = model.transform(test_df)
-predictions.select("features", "prediction").show()
-# Save predictions to a CSV file
-output_path = "/home/ubuntu/predictions.csv"
-predictions.select("features", "prediction").write.csv(output_path, header=True)
-print(f"Predictions saved to {output_path}")
+scaler = Normalizer(inputCol="inputFeatures", outputCol="features")
+
+## Only use LogisticRegression because this was the best model decided on
+lr = LogisticRegression()
+pipeline1 = Pipeline(stages=[assembler, scaler, lr])
+paramgrid = ParamGridBuilder().build()
+evaluator = MulticlassClassificationEvaluator(metricName="f1")
+crossval = CrossValidator(estimator=pipeline1,  
+                         estimatorParamMaps=paramgrid,
+                         evaluator=evaluator, 
+                         numFolds=3
+                        )
+cvModel1 = crossval.fit(test_df) 
+print("F1 Score for Our Model: ", evaluator.evaluate(cvModel1.transform(test_df)))
