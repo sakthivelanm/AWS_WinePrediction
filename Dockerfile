@@ -1,7 +1,8 @@
 FROM bitnami/spark:latest
 
+USER root
+RUN apt-get update && apt-get install -y openjdk-8-jdk
 RUN pip3 install pyspark pandas scikit-learn quinn
-RUN apt-get install -y openjdk-8-jdk
 
 COPY . /app
 WORKDIR /app
