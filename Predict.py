@@ -26,6 +26,7 @@ spark = SparkSession \
     .appName("CS643_Wine_Quality_Predictions_Project") \
     .master("spark://ip-172-31-81-63:7077") \
     .getOrCreate()
+spark.sparkContext.setLogLevel("ERROR")
 
 # Load saved model
 model_path = "/home/ubuntu/wineQualityLogisticModel/bestModel"
