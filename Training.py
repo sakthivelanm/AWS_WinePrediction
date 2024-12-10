@@ -89,8 +89,6 @@ print("F1 Score for RandomForestClassifier Model: ", f1_score_rf)
 
 if f1_score_lr > f1_score_rf:
     print("Using Logistic Regression Model for predictions.")
-    cvModel1.write().overwrite().save("/home/ubuntu/wineQualityLogisticModel")
 else:
     print("Using Random Forest Model for predictions.")
-    cvModel2.write().overwrite().save("/home/ubuntu/wineQualityRfModel")
 
