@@ -12,7 +12,7 @@ from pyspark.ml.classification import LogisticRegression, RandomForestClassifier
 from pyspark.ml.evaluation import MulticlassClassificationEvaluator
 from pyspark.ml.tuning import CrossValidator, ParamGridBuilder
 from pyspark.ml import Pipeline
-from pyspark.ml import PipelineModel
+from pyspark.ml import CrossValidatorModel
 
 # Check for input arguments
 if len(sys.argv) != 2:
@@ -29,7 +29,7 @@ spark = SparkSession \
 
 # Load saved model
 model_path = "/home/ubuntu/wineQualityLogisticModel"
-model = PipelineModel.load(model_path)
+model = CrossValidatorModel.load(model_path)
 
 # Load test dataset
 test_df = spark.read.format('csv').options(header='true', inferSchema='true', sep=';').load(test_file_path)
