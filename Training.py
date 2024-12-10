@@ -18,6 +18,7 @@ spark = SparkSession \
     .appName("CS643_Wine_Quality_Predictions_Project") \
     .master("spark://ip-172-31-22-218:7077") \
     .getOrCreate()
+spark.sparkContext.setLogLevel("ERROR")
 
 ## Load Training Dataset
 train_df = spark.read.format('csv').options(header='true', inferSchema='true', sep=';').load('/home/ubuntu/AWS_WinePrediction/TrainingDataset.csv')
